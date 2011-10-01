@@ -8,8 +8,11 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^$', 'review.views.index_view'),
     url(r'^review/create/$', 'review.views.create_review'), # Create new review
+#    url(r'^savearchive/', 'review.views.savearchive_ajax'), # Save new archive_id from tokbox
     url(r'^review/(?P<review_id>\w+)/$', 'review.views.view_review', {}, ), # Show existing review
     url(r'^accounts/', include('registration.backends.simple.urls')),
+
+    url(r'^movie/(?P<RT_movie_id>\w+)/$', 'movie.views.view_movie', {}, ), # Show reviews for movie
 
 #    url(r'^splash/$', direct_to_template, {'template': 'index.html'}),
 #    url(r'^dashboard/$', 'review.views.dashboard_view'), # Displays list of both currencies/holdings, transactions, and button to add new currency
