@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Create new review{% endblock title %}
+{% block body_class %}new_review{% endblock body_class %}
+
+{% block content %}
+
+<h1>Create Review</h1>
+
+<form action="." method="post">{% csrf_token %}
+
+{% if form.title.errors %}
+   {{form.title.errors}}
+{% endif %}
+
+<p>
+<label>Title</label>
+{{ form.title }}
+</p>
+
+<p>
+<label>Archive ID</label>
+{{ form.archive_id }}
+</p>
+
+{% if form.archive_id.errors %}
+    {{form.archive_id.errors}}
+{% endif %}
+
+<button style="margin: 10px 0px" type="submit" value="Submit">Submit</button>
+</form>
+
+{% endblock content %}
+
+

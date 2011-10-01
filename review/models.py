@@ -6,11 +6,11 @@ class Review(models.Model):
 	title = models.CharField(max_length=100)
 	user = models.ForeignKey(User, blank=True, null=True)
 	archive_id = models.CharField(max_length=50, blank=True, null=True) # archive_id from TokBox
-#	movie = #
+#	movie_id =    # movie_id from Rotten Tomatoes
 	created_at = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
-		return "Review by %s on ..." % (self.user.username)
+		return "Review by %s on ..." % (self.ruser.username)
 
 class UserProfile(models.Model):
 	user = models.OneToOneField(User)
