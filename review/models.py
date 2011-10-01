@@ -10,7 +10,7 @@ class Review(models.Model):
 	created_at = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
-		return "Review by %s on ..." % (self.ruser.username)
+		return "Review by %s on ..." % (self.user.username)
 
 class UserProfile(models.Model):
 	user = models.OneToOneField(User)
