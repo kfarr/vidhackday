@@ -1,5 +1,5 @@
 import os
-# Django settings for laserbomb project.
+# Django settings for vidhackday project.
 
 LOCAL = False
 DEBUG = True
@@ -14,7 +14,7 @@ MANAGERS = ADMINS
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
-        'NAME': 'laserdb',                      # Or path to database file if using sqlite3.
+        'NAME': 'DBvidhackday',                      # Or path to database file if using sqlite3.
         'USER': '',                      # Not used with sqlite3.
         'PASSWORD': '',                  # Not used with sqlite3.
         'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
@@ -24,7 +24,7 @@ DATABASES = {
 
 ACCOUNT_ACTIVATION_DAYS = 7
 
-AUTH_PROFILE_MODULE = 'currency.UserProfile'
+AUTH_PROFILE_MODULE = 'review.UserProfile'
 
 LOGIN_REDIRECT_URL = '/dashboard/'
 LOGOUT_REDIRECT_URL = '/'
@@ -83,7 +83,7 @@ STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    '/Users/kfarr/laserbomb/static',
+    '/Users/kfarr/vidhackday/static',
 )
 
 # List of finder classes that know how to find static files in
@@ -121,7 +121,7 @@ if LOCAL: TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    "/Users/kfarr/laserbomb/templates"
+    "/Users/kfarr/vidhackday/templates"
 	)
 
 
@@ -137,7 +137,7 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'registration',
-    'currency',
+    'review',
 )
 
 if not LOCAL: INSTALLED_APPS = (
@@ -151,14 +151,14 @@ if not LOCAL: INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs',
     'registration',
-    'currency',
+    'review',
 )
 
 # Email settings
 EMAIL_HOST='smtp.postmarkapp.com'
 EMAIL_HOST_USER='d637ffe1-403b-4b88-bfe2-d9b3eb3c1053'
 EMAIL_HOST_PASSWORD='d637ffe1-403b-4b88-bfe2-d9b3eb3c1053'
-DEFUALT_FROM_EMAIL = 'noreply@diycurrency.com'
+DEFUALT_FROM_EMAIL = 'noreply@vidhackday.com'
 
 # A sample logging configuration. The only tangible logging
 # performed by this configuration is to send an email to
