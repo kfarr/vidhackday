@@ -18,7 +18,7 @@ $(document).ready(function() {
     }
 
 	function archiveSavedHandler(event) {
-	    archive = event.archive[0];
+	    archive = event.archives[0];
 	    saveArchive(reviewId, archive.archiveId);   
 	}
 
