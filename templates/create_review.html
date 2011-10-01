@@ -7,28 +7,9 @@
 
 <h1>Create Review</h1>
 
-<form action="." method="post">{% csrf_token %}
-
-{% if form.title.errors %}
-   {{form.title.errors}}
-{% endif %}
-
-<p>
-<label>Title</label>
-{{ form.title }}
-</p>
-
-<p>
-<label>Archive ID</label>
-{{ form.archive_id }}
-</p>
-
-{% if form.archive_id.errors %}
-    {{form.archive_id.errors}}
-{% endif %}
-
-<button style="margin: 10px 0px" type="submit" value="Submit">Submit</button>
-</form>
+<div id="vidContainer">
+	<div id="video"></div>
+</div>
 
 {% endblock content %}
 
