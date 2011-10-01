@@ -1,7 +1,7 @@
 import os
 # Django settings for laserbomb project.
 
-LOCAL = True
+LOCAL = False
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
