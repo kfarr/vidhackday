@@ -12,10 +12,11 @@ urlpatterns = patterns('',
     url(r'^review/(?P<review_id>\w+)/$', 'review.views.view_review', {}, ), # Show existing review
     url(r'^accounts/', include('registration.backends.simple.urls')),
 
+    url(r'^dashboard/$', 'review.views.dashboard_view'), # Displays list of both currencies/holdings, transactions, and button to add new currency
+
     url(r'^movie/(?P<RT_movie_id>\w+)/$', 'movie.views.view_movie', {}, ), # Show reviews for movie
 
 #    url(r'^splash/$', direct_to_template, {'template': 'index.html'}),
-#    url(r'^dashboard/$', 'review.views.dashboard_view'), # Displays list of both currencies/holdings, transactions, and button to add new currency
 #    url(r'^about/$', direct_to_template, {'template': 'about.html'}),
 #    url(r'^faq/$', direct_to_template, {'template': 'faq.html'}),
 

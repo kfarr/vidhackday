@@ -12,6 +12,10 @@ def index_view(request):
 #		return dashboard_view(request)
 	return render_to_response('index.html', {}, context_instance=RequestContext(request))
 
+def dashboard_view(request):
+	reviews = Review.objects.filter(user=request.user)
+	return render_to_response('dashboard.html', {'reviews':reviews}, context_instance=RequestContext(request))
+
 def view_review(request, review_id = None):
 	review = get_object_or_404(Review, id = review_id)
 	return render_to_response('view_review.html', {'review': review}, context_instance=RequestContext(request))
