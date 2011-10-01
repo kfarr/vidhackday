@@ -12,8 +12,12 @@ def index_view(request):
 #		return dashboard_view(request)
 	return render_to_response('index.html', {}, context_instance=RequestContext(request))
 
+def view_review(request, review_id = None):
+	review = get_object_or_404(Review, id = review_id)
+	return render_to_response('view_review.html', {'review': review}, context_instance=RequestContext(request))
+
 @login_required
-def create_review_view(request):
+def create_review(request):
 	# Create one review
 	from review.forms import ReviewForm
 
