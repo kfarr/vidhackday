@@ -6,7 +6,7 @@ class Review(models.Model):
 	title = models.CharField(max_length=100)
 	user = models.ForeignKey(User, blank=True, null=True)
 	archive_id = models.CharField(max_length=50, blank=True, null=True) # archive_id from TokBox
-#	movie = #
+	movie = models.ForeignKey(Movie, blank=True, null=True)
 	created_at = models.DateTimeField(auto_now_add=True)
 
 	def __str__(self):
