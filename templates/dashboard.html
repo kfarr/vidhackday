@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+
+{% if currencies %}
+	<p>You may perform transactions with the following currencies: {% for currency in currencies %}<a href="/currency/{{ currency.short_symbol }}/">{{ currency }}</a> {% endfor %}</p>
+{% else %}
+	<h2>Create a Currency</h2>
+	<p>You have not created a custom currency, why not <a href="/currency/">create your custom currency now</a>?</p>
+{% endif %}
+
+{% if holdings %}
+	<h2>Your Holdings</h2>
+	<ul>{% for holding in holdings %}
+		<li>{{ holding }}</li>
+	{% endfor %}</ul>
+{% endif %}
+
+	<h2>Transactions</h2>
+	<ul><li><a href="/transaction/" style="text-decoration:underline;">New Transaction</a></li>
+	{% if transactions %}
+	{% for transaction in transactions %}
+		<li><a href="/transaction/{{ transaction.id }}/">{{ transaction.get_status_display }} - {{ transaction }}</a></li>
+	{% endfor %}{% endif %}</ul>
+
+{% endblock content %}

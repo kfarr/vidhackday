@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block body_class %}{% if short_symbol == None %}new_currency{% else %}edit_currency{% endif %}{% endblock body_class %}
+
+
+
+{% block content %}
+
+{% if short_symbol == None %}
+<h1>Currency Wizard</h1>
+{% else %}
+<h3 style="clear: both;color: #555;">Editing {{ short_symbol }}</h3>
+{% endif %}
+
+
+<form action="." method="post">{% csrf_token %}
+
+    {% if form.long_name.errors %}
+        {{form.long_name.errors}}
+    {% endif %}
+<p>
+<label>Currency Name</label>
+{{ form.long_name }}
+</p>
+
+{% if form.short_symbol.errors %}
+    {{form.short_symbol.errors}}
+{% endif %}
+
+<p>
+<label>Short Symbol</label>
+{{ form.short_symbol }}
+</p>
+
+{% if form.total_units.errors %}
+    {{form.total_units.errors}}
+{% endif %}
+
+<p>
+<label>Total units</label>
+{{ form.total_units }}
+</p>
+<button style="margin: 10px 0px" type="submit" value="Submit">Submit</button>
+</form>
+
+<h3 style="clear: both;color: #555;">Coming soon</h3>
+
+<p style="clear: both;color: #444; margin-top:10px">
+Currency expiration
+</p>
+<p style="clear: both;color: #444; margin-top:10px">
+Taxation
+</p>
+<p style="clear: both;color: #444; margin-top:10px">
+Currency governance
+</p>
+<p style="clear: both;color: #444; margin-top:10px">
+Seed parameters/distribution
+</p>
+<p style="clear: both;color: #444; margin-top:10px">
+Optional anonymity
+</p>
+
+
+{% endblock content %}
+
+

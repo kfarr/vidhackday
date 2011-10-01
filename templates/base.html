@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<title>{% block title %}DIY Currency{% endblock %}</title>
+    <script type="text/javascript" charset="utf-8" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+	<link rel="stylesheet" href="/static/styles.css" type="text/css" media="screen" title="no title" charset="utf-8">
+</head>
+<body class="{% block body_class %}no_class{% endblock %}">
+	{% block globalstatus %}
+	{% if form.non_field_errors %}
+		<div id="global-error">
+			{{ form.non_field_errors.as_ul }}
+		</div>
+	{% endif %}
+	{% if messages %}
+		<div id="messages">
+			<ul>{% for message in messages %}
+				<li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+			{% endfor %}</ul>
+		</div>
+	{% endif %}
+	{% endblock globalstatus %}
+
+
+    <div id="header">
+        <div class="center">
+            <div class="logo">
+                <a href="/">DIY Currency</a>
+            </div>
+            <div class="nav">
+
+                <div class="link">
+                    <a href="/">Home</a>
+                </div>
+                <div class="link">
+                    <a href="/about">About</a>
+                </div>
+                <div class="link">
+                    <a href="/faq">FAQ</a>
+                </div>
+                <div class="link">
+                    <a href="#">Blog</a>
+                </div>
+                <div class="link">
+                    <a href="/contact">Contact</a>
+                </div>
+		{% if user.is_authenticated %}
+	        <div class="link logout_link">
+                    <a href="/accounts/logout">Logout</a>
+                </div>
+		{% else %}
+                <div class="link login_link">
+                    <a href="/accounts/login">Login</a>
+                </div>
+
+		{% endif %}
+            </div>
+        
+
+        </div>
+    </div>
+
+    <div id="body"><div class="center">
+    	{% block content %}{% endblock content %}
+    </div></div>
+
+    <div id="footer">
+        <div class="center">
+
+        <div class="bottom">
+            <p>Built and launched within 24 hours for the <a href="http://startupbus.com" title="StartupBus 2012">StartupBus</a> Challenge</p>
+            <div class="logo">
+                DIY Currency
+            </div>
+            <p>(c) 2011</p>
+        </div>
+        </div>
+    </div>
+
+</body>
+</html>

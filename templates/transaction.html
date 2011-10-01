@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block content %}
+
+
+<h1>New Transaction</h1>
+<div class="ghetto_form">
+
+{% if form.errors %}
+<div class="error">You made a mistake</div>
+{% endif %}
+
+<label style="height:50px">I give</label>
+<div class="radios_from" >
+    <div class="currency">
+        <input type="radio" name="from_radio" checked="true" /> Currency <input type="text" value="1" id="from_value" /> {{form.from_currency}}
+    </div>
+    <div class="item">
+        <input type="radio" name="from_radio"/> or an Item <input type="text" placeholder="e.g. a beer" id="from_item" />
+    </div>
+</div>
+
+<div style="margin-top: 20px;clear: both;height:50px" class="fieldgroup">
+<label style="height:50px">...in exchange for</label>
+<div class="radios_to" >
+    <div class="currency">
+        <input type="radio" checked="true"  name="to_radio" /> Currency <input type="text" value="1" id="to_value" /> {{form.to_currency}}
+    </div>
+    <div class="item">
+        <input type="radio" name="to_radio" /> or an Item <input type="text" placeholder="e.g. a beer" id="to_item"/>
+    </div>
+</div>
+</div>
+
+<label style="height:50px">... from email</label>
+<input type="text" id="text_user" placeholder="e.g. john.doe@example.com"/>
+
+</div>
+
+<form action="." method="post">{% csrf_token %}
+<div id="hidden_form" style="display:none">
+{{ form.as_p }}
+<input class="submit" type="submit" value="Submit" />
+</div>
+</form>
+<br /><button>Submit</button>
+
+<script type="text/javascript" charset="utf-8">
+    $(function(){
+        $('button').click(function(){
+            
+            $secret_form = $('#hidden_form')
+            
+            $ghetto_form = $(".ghetto_form")
+
+            if($ghetto_form.find('.radios_from .currency input[type="radio"]').attr('checked')) {
+                $secret_form.find("#id_from_currency").val($ghetto_form.find('.currency select').val());
+                $("#id_from_quantity").val($('#from_value').val());
+            } else {
+                $secret_form.find("#id_from_item").val($('#from_item').val());
+            }
+            
+            $('#id_from_user').val("{{user.id}}")
+            $('#id_to_user').val($("#text_user").val())
+
+            if($ghetto_form.find('.radios_to .currency input[type="radio"]').attr('checked')) {
+                $secret_form.find("#id_to_currency").val($ghetto_form.find('.currency select').val());
+                $("#id_to_quantity").val($('#to_value').val());
+            } else {
+                alert('yea'+ $('#to_item').val())
+                $secret_form.find("#id_to_item").val($('#to_item').val());
+            }
+
+
+            // if($ghetto_form.find('.radios_from .currency input[type="radio"]').val() === 'on') {
+            //     $secret_form.find("#id_from_currency").val($ghetto_form.find('.currency select').val());
+            //     $("#id_from_quantity").val($('#from_value').val());
+            // }
+            
+            
+            $secret_form.find('.submit').click()
+            
+            
+        });
+    });
+</script>
+
+{% endblock content %}
