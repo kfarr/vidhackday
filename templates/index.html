@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-    <h2><a href="/review/create">Make A Review</a></h2><p>
-	<h2><a href="/dashboard//">See Your Reviews</a></h2><p>
+    <h2><a href="/review/create">Make A Review</a></h2>
+
+
+{% if reviews %}
+{% for review in reviews%}
+	<h2><a href="/review/{{ review.id }}/">Review by {{ review.user }} on {{ review.movie }}</a></h2>
+{% endfor%}
+
+{% endif %}
+    <h2><a href="/dashboard//">See Your Reviews</a></h2>
 {% endblock content %}

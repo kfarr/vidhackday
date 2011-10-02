@@ -12,7 +12,8 @@ from django.views.decorators.csrf import csrf_exempt
 def index_view(request):
 #	if request.user.is_authenticated():
 #		return dashboard_view(request)
-	return render_to_response('index.html', {}, context_instance=RequestContext(request))
+	reviews = Review.objects.all()
+	return render_to_response('index.html', {'reviews': reviews}, context_instance=RequestContext(request))
 
 @login_required
 def dashboard_view(request):
