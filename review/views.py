@@ -21,7 +21,7 @@ def dashboard_view(request):
 
 def display_review(request, review_id = None):
 	review = get_object_or_404(Review, id = review_id)
-	return render_to_response('display_review.html', {'review': review, 'archive_id': review.archive_id}, context_instance=RequestContext(request))
+	return render_to_response('display_review.html', {'review': review, 'archive_id': review.archive_id, 'movie': review.movie}, context_instance=RequestContext(request))
 
 @login_required
 def create_review(request):

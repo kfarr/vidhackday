@@ -17,7 +17,6 @@ table, caption, tbody, tfoot, thead, tr, th, td {
   vertical-align: baseline;
 }
 body {
-  line-height: 1;
   color: black;
   background: #111;
 }
@@ -49,7 +48,6 @@ html {
   body {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 14px;
-    line-height: 1.4em;
     background: #111;
     color: #333333;
     background-image:url('theater.jpg');
@@ -97,7 +95,6 @@ h2 {
     width: 466px;
     font-size: 24px;
     font-family: inherit;
-    line-height: 1.4em;
     border: 0;
     outline: none;
     padding: 6px;
@@ -167,7 +164,6 @@ button {
   box-shadow: inset 0 1px 0 0 #96ca6d;
   color: #F6FAA1;
   font: bold 11px "Lucida Grande", "Lucida Sans Unicode", "Lucida Sans", Geneva, Verdana, sans-serif;
-  line-height: 1;
   padding: 7px 0 8px 0;
   text-align: center;
   text-shadow: 0 -1px 0 #4c9021;
