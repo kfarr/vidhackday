@@ -9,7 +9,7 @@ urlpatterns = patterns('',
     url(r'^$', 'review.views.index_view'),
     url(r'^review/create/$', 'review.views.create_review'), # Create new review
     url(r'^saveArchive/', 'review.views.save_archive_ajax'), # Save new archive_id from tokbox
-    url(r'^review/(?P<review_id>\w+)/$', 'review.views.view_review', {}, ), # Show existing review
+    url(r'^review/(?P<review_id>\w+)/$', 'review.views.display_review', {}, ), # Show existing review
     url(r'^accounts/', include('registration.backends.simple.urls')),
 
     url(r'^dashboard/$', 'review.views.dashboard_view'), # Displays list of both currencies/holdings, transactions, and button to add new currency

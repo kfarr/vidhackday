@@ -18,9 +18,9 @@ def dashboard_view(request):
 	reviews = Review.objects.filter(user=request.user)
 	return render_to_response('dashboard.html', {'reviews':reviews}, context_instance=RequestContext(request))
 
-def view_review(request, review_id = None):
+def display_review(request, review_id = None):
 	review = get_object_or_404(Review, id = review_id)
-	return render_to_response('view_review.html', {'review': review}, context_instance=RequestContext(request))
+	return render_to_response('display_review.html', {'review': review, 'archive_id': review.archive_id}, context_instance=RequestContext(request))
 
 @login_required
 def create_review(request):
@@ -57,9 +57,6 @@ def save_archive_ajax(request):
 	archive_id = request.POST['archive_id']
 	
 	messages.success(request, "This review has been saved. %s %s" % (movie_id, archive_id))
-
-        data = json.dumps({'state': state, 'message': msg, 'shortname': dest.short_name})
-        return HttpResponse(data, 'application/javascript')
     else:
 	msg = "Error"
         return HttpResponse(msg)
