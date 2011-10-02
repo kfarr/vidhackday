@@ -138,6 +138,7 @@ INSTALLED_APPS = (
     'django.contrib.admindocs',
     'registration',
     'review',
+    'movie',
 )
 
 if not LOCAL: INSTALLED_APPS = (
@@ -152,6 +153,7 @@ if not LOCAL: INSTALLED_APPS = (
     'django.contrib.admindocs',
     'registration',
     'review',
+    'movie',
 )
 
 # Email settings
