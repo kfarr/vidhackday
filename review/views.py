@@ -57,6 +57,7 @@ def save_archive_ajax(request):
 	archive_id = request.POST['archive_id']
 	
 	messages.success(request, "This review has been saved. %s %s" % (movie_id, archive_id))
+	return HttpResponse('success')
     else:
 	msg = "Error"
         return HttpResponse(msg)
