@@ -14,6 +14,7 @@ def index_view(request):
 #		return dashboard_view(request)
 	return render_to_response('index.html', {}, context_instance=RequestContext(request))
 
+@login_required
 def dashboard_view(request):
 	reviews = Review.objects.filter(user=request.user)
 	return render_to_response('dashboard.html', {'reviews':reviews}, context_instance=RequestContext(request))
@@ -56,6 +57,8 @@ def save_archive_ajax(request):
 	movie_id = request.POST['movie_id'] 
 	archive_id = request.POST['archive_id']
 	
+	review = Review(user = request.user, archive_id = archive_id, movie = Movie.objects.get(pk=movie_id))
+	review.save()
 	messages.success(request, "This review has been saved. %s %s" % (movie_id, archive_id))
 	return HttpResponse('success')
     else:
