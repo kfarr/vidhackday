@@ -11,6 +11,14 @@
 	<div id="video"></div>
 </div>
 
+<form>
+<select>
+{% for movie in movies %}
+	<option value = "{{ movie.id }}">{{ movie.title }}</option>
+{% endfor %}
+</select>
+</form>
+
 {% endblock content %}
 
 
