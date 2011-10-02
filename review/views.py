@@ -56,7 +56,7 @@ def save_archive_ajax(request):
 	movie_id = request.POST['movie_id'] 
 	archive_id = request.POST['archive_id']
 	
-	messages.success(request, "This review has been saved. %s %s" % movie_id, archive_id)
+	messages.success(request, "This review has been saved. %s %s" % (movie_id, archive_id))
 
         data = json.dumps({'state': state, 'message': msg, 'shortname': dest.short_name})
         return HttpResponse(data, 'application/javascript')
