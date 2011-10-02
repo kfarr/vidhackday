@@ -22,16 +22,15 @@ $(document).ready(function() {
 	}
 
 	function saveArchive(archiveId) {
-		alert('saveArchive');
         var movieId = $(':selected').val();
 		// Save archiveID to server
 		$.ajax({
-			url: '/saveArchive',
+			url: '/saveArchive/',
 			type: 'POST',
 			//dataType: 'json',
 			data: { "movie_id": movieId, "archive_id": archiveId },
 			success: function(data) {
-				alert('Saved!');
+				window.location.href = "/dashboard";
 			} 
 		});
 	}
